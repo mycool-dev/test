@@ -38,6 +38,7 @@ export default function App() {
     function newGame(){
         setTenzies(false)
         setDice(allNewDice)
+        setCount(0)
     }
     
 /**
@@ -76,11 +77,10 @@ export default function App() {
         <main>
             {tenzies && <Confetti />}
             <div className="title-rolls">
-            <h1 className="title">Tenzies</h1>
+            <h1 className="title">{tenzies ? "Congratulations!" : "Tenzies"}</h1>
             <p>Rolls:{count}</p>
             </div>
-            <p className="instructions">Roll until all dice are the same. 
-            Click each die to freeze it at its current value between rolls.</p>
+            {!tenzies &&  <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>}
             <div className="dice-container">
                 {diceElements}
             </div>
